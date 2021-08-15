@@ -8,6 +8,9 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import static io.restassured.RestAssured.*;
+import static org.junit.jupiter.api.Assertions.*;
+
 public class HrGetRequests {
 
     @BeforeAll
@@ -38,7 +41,7 @@ public class HrGetRequests {
     @Test
     public void test2(){
 
-        Response response = RestAssured.given().accept(ContentType.JSON)
+        Response response = given().accept(ContentType.JSON)
                 .when()
                         .get("/regions/2");
 
@@ -46,12 +49,12 @@ public class HrGetRequests {
         Assertions.assertEquals(200, response.statusCode());
 
         //verify content type
-        Assertions.assertEquals("application/json", response.contentType());
+        assertEquals("application/json", response.contentType());
 
         response.prettyPrint();
 
         //verify body contains Americas
-        Assertions.assertTrue(response.body().asString().contains("Americas"));
+        assertTrue(response.body().asString().contains("Americas"));
 
     }
 
