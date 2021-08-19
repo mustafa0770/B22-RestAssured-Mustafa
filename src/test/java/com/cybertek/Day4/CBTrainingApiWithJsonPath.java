@@ -18,7 +18,7 @@ public class CBTrainingApiWithJsonPath {
 
     @BeforeAll
     public static void init() {
-        //save baseurl inside this variable so that we dont need to type each http method.
+        //save baseurl inside this variable so that we don't need to type each http method.
         baseURI = "http://api.cybertektraining.com/";
     }
     @DisplayName("GET Request to individual student")
